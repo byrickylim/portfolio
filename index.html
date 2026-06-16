@@ -187,6 +187,7 @@
   }
   .mobile-nav a:hover { color: var(--amber); }
   .mobile-nav .btn { font-size: 13px; margin-top: 12px; }
+  .mobile-nav .btn--amber { color: var(--cta-fg); }
 
   /* ============================================================
      HERO
@@ -409,9 +410,9 @@
   .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
   .case {
     background: var(--card-darker); border: 1px solid var(--border-dark);
-    display: flex; flex-direction: column; transition: border-color 0.2s ease, transform 0.2s ease;
+    display: flex; flex-direction: column; transition: border-color 0.2s ease;
   }
-  .case:hover { border-color: #3a3a3a; transform: translateY(-3px); }
+  .case:hover { border-color: #3a3a3a; }
   .case__media {
     position: relative; aspect-ratio: 4 / 3; background: #181818;
     border-bottom: 1px solid var(--border-dark); overflow: hidden;
@@ -434,7 +435,6 @@
   .case__desc { font-size: 14px; font-weight: 300; color: #b3b0aa; line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
   .case__tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 22px; }
   .case__tag { font-size: 11px; color: var(--gray); border: 1px solid #242424; padding: 4px 9px; }
-  .case__link { color: var(--offwhite); align-self: flex-start; }
 
   /* ============================================================
      SYSTEMS — documentation portfolio
@@ -662,7 +662,7 @@
     .nav__toggle { display: flex; }
 
     .hero__top { flex-direction: column; gap: 16px; }
-    .hero__name { font-size: 22vw; }
+    .hero__name { font-size: 15vw; letter-spacing: 0.02em; white-space: normal; }
     .hero__photo { height: 56vh; }
     .hero__bottom { flex-direction: column; align-items: flex-start; gap: 22px; }
     .hero__stats { flex-wrap: wrap; }
@@ -691,7 +691,7 @@
      ============================================================ */
   @media (max-width: 480px) {
     .container { padding: 0 18px; }
-    .hero__name { font-size: 25vw; }
+    .hero__name { font-size: 14vw; }
     .hero__photo { height: 46vh; }
     .hero__ctas { width: 100%; }
     .cert-card { padding: 24px; flex-direction: column; gap: 16px; }
@@ -774,7 +774,7 @@
   <a href="#hero" class="nav__brand">RICKY LIM</a>
 
   <div class="nav__right">
-    <a href="#contact" class="btn btn--amber">Inquire</a>
+    <a href="#contact" class="btn btn--amber">Book</a>
     <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -788,7 +788,7 @@
   <a href="#workflow" data-close>Workflow</a>
   <a href="#tools" data-close>Tools</a>
   <a href="#contact" data-close>Contact</a>
-  <a href="#contact" class="btn btn--amber" data-close>Inquire</a>
+  <a href="#contact" class="btn btn--amber" data-close>Book</a>
 </div>
 
 <!-- ============================================================
@@ -1151,9 +1151,8 @@
       <div>
         <h2 class="contact__headline">Available for<br/>the right project.</h2>
         <p class="contact__intro">
-          Available for freelance, contract, and full-time opportunities in live entertainment,
-          corporate production, AV systems, and technical direction. Tell me about the show
-          you're building and let's talk through it.
+          Available for opportunities in live entertainment, corporate production, AV systems,
+          and technical direction. Tell me about the show you're building and let's talk through it.
         </p>
       </div>
 
@@ -1179,7 +1178,7 @@
             </svg>
             LinkedIn — connect &amp; view recommendations
           </a>
-          <a href="#" download>
+          <a href="Ricky_Lim_Resume.pdf" download="Ricky_Lim_Resume.pdf">
             <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/>
             </svg>
@@ -1191,21 +1190,6 @@
   </div>
 </section>
 
-<!-- ============================================================
-     RESUME CTA BLOCK
-     ============================================================ -->
-<section class="resume-block">
-  <div class="container reveal">
-    <span class="label resume-block__label">On Paper</span>
-    <h2>Download the full resume (PDF)</h2>
-    <a href="#" class="btn btn--amber" download>
-      <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/>
-      </svg>
-      Resume
-    </a>
-  </div>
-</section>
 
 <!-- ============================================================
      FOOTER
@@ -1227,12 +1211,12 @@
 </footer>
 
 <!-- floating resume button -->
-<button class="resume-float" id="resumeFloat" onclick="document.querySelector('.resume-block a').click()">
+<a href="Ricky_Lim_Resume.pdf" download="Ricky_Lim_Resume.pdf" class="resume-float" id="resumeFloat">
   <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
     <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/>
   </svg>
   Resume
-</button>
+</a>
 
 <!-- ============================================================
      JS — vanilla, no libraries
