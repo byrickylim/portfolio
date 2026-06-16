@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sony FYC Event — Production Case Study · Ricky Lim</title>
+<meta name="description" content="Case study: Production Crew / Stagehand for a Sony For Your Consideration screening and panel — stage setup, panel A/V, production workflow, and strike under tight venue turnarounds." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --black:#0a0a0a;--offwhite:#f4f2ee;--amber:#6f6a62;--gray:#888;
+    --card-dark:#161616;--card-darker:#111;--border-dark:#1e1e1e;
+    --display:'Archivo Black',Impact,sans-serif;
+    --body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --strip-h:34px;--nav-h:64px;
+  }
+  /* dark surfaces use a soft ivory accent */
+  .topbar,.nav,.cs-hero,.outcomes,.cs-foot{--amber:#cdc8bd;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--body);background:var(--offwhite);color:var(--black);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .container{max-width:1100px;margin:0 auto;padding:0 48px;}
+  .label{font-family:var(--body);font-weight:500;font-size:11px;letter-spacing:.15em;text-transform:uppercase;}
+
+  .topbar{position:fixed;top:0;left:0;right:0;height:var(--strip-h);z-index:55;background:var(--black);color:var(--offwhite);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+  .topbar span{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#c9c6c0;}
+  .topbar .r{color:#8f8c86;}
+  .nav{position:fixed;top:var(--strip-h);left:0;right:0;height:var(--nav-h);z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:var(--black);color:var(--offwhite);border-bottom:1px solid var(--border-dark);}
+  .nav__brand{font-family:var(--display);font-weight:400;font-size:20px;letter-spacing:.06em;color:var(--offwhite);}
+  .nav__back{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--offwhite);transition:color .2s;}
+  .nav__back:hover{color:var(--amber);}
+  .nav__back svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;}
+
+  .cs-hero{background:var(--black);color:var(--offwhite);padding:calc(var(--strip-h) + var(--nav-h) + 90px) 0 80px;position:relative;overflow:hidden;}
+  .cs-hero__texture{position:absolute;inset:0;background-image:linear-gradient(to right,rgba(244,242,238,.5) 1px,transparent 1px),linear-gradient(to bottom,rgba(244,242,238,.5) 1px,transparent 1px);background-size:68px 68px;opacity:.04;pointer-events:none;}
+  .cs-hero__badge{display:inline-block;font-weight:500;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);border:1px solid #2a2a2a;padding:6px 12px;margin-bottom:26px;}
+  .cs-hero__num{font-family:var(--display);font-size:14px;color:var(--gray);letter-spacing:.1em;margin-bottom:14px;}
+  .cs-hero__title{font-family:var(--display);font-weight:400;font-size:clamp(40px,7vw,96px);line-height:.92;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:24px;}
+  .cs-hero__role{font-size:16px;font-weight:500;letter-spacing:.04em;color:var(--amber);margin-bottom:30px;}
+  .cs-hero__lede{font-size:clamp(17px,1.9vw,21px);font-weight:300;line-height:1.6;color:#cfccc6;max-width:760px;}
+  .cs-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid #222;margin-top:50px;}
+  .cs-meta__item{padding:24px 22px 0 0;border-left:1px solid #222;padding-left:24px;}
+  .cs-meta__item:first-child{border-left:none;padding-left:0;}
+  .cs-meta__k{display:block;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#7d7a74;margin-bottom:7px;}
+  .cs-meta__v{font-weight:500;font-size:14px;color:var(--offwhite);}
+
+  .cs-body{padding:96px 0;}
+  .cs-sec{padding-bottom:72px;}
+  .cs-sec:last-child{padding-bottom:0;}
+  .cs-sec__label{display:flex;align-items:baseline;gap:14px;margin-bottom:24px;}
+  .cs-sec__no{font-family:var(--display);font-size:15px;color:var(--amber);}
+  .cs-sec__h{font-family:var(--display);font-weight:400;font-size:clamp(24px,3.2vw,40px);line-height:1.02;letter-spacing:-.01em;text-transform:uppercase;color:var(--black);}
+  .cs-sec p{font-size:16px;font-weight:300;line-height:1.75;color:#2a2824;max-width:760px;}
+  .cs-sec p + p{margin-top:16px;}
+
+  .cs-list{list-style:none;margin-top:18px;max-width:760px;}
+  .cs-list li{position:relative;padding:14px 0 14px 30px;border-top:1px solid #e2ddd3;font-size:15px;font-weight:300;color:#2a2824;line-height:1.6;}
+  .cs-list li:first-child{border-top:none;}
+  .cs-list li::before{content:'';position:absolute;left:0;top:21px;width:10px;height:1.5px;background:var(--amber);}
+  .cs-list li b{font-weight:600;color:var(--black);}
+
+  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px;}
+  .shot{position:relative;aspect-ratio:16/10;background:#141414;border:1px solid var(--border-dark);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#5a5a5a;}
+  .shot svg{width:34px;height:34px;color:#3d3d3d;}
+  .shot .cap{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6d6862;}
+  .shot .sub{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#4a4a4a;}
+
+  .outcomes{background:var(--black);color:var(--offwhite);padding:80px 0;margin-top:24px;}
+  .outcomes__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:36px;}
+  .outcome__no{font-family:var(--display);font-size:26px;color:var(--amber);margin-bottom:12px;}
+  .outcome__t{font-weight:600;font-size:17px;color:var(--offwhite);margin-bottom:8px;}
+  .outcome__d{font-size:14px;font-weight:300;color:#a8a59f;line-height:1.6;}
+
+  .cs-foot{background:#0e0e0e;color:var(--offwhite);padding:70px 0;border-top:1px solid var(--border-dark);text-align:center;}
+  .cs-foot__k{color:var(--amber);margin-bottom:14px;display:block;}
+  .cs-foot__h{font-family:var(--display);font-weight:400;font-size:clamp(26px,4vw,46px);line-height:1;text-transform:uppercase;margin-bottom:30px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-weight:500;font-size:12px;letter-spacing:.15em;text-transform:uppercase;padding:14px 28px;cursor:pointer;border:none;transition:transform .2s,background .2s,color .2s;}
+  .btn:hover{transform:scale(1.02);}
+  .btn--amber{background:var(--offwhite);color:var(--black);}
+  .btn--amber:hover{background:#e6e1d7;}
+  .btn--outline{background:transparent;color:var(--offwhite);border:1px solid #333;}
+  .btn--outline:hover{border-color:var(--amber);color:var(--amber);}
+  .cs-foot__btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+  @media(max-width:768px){
+    .container{padding:0 24px;}
+    .topbar{padding:0 24px;justify-content:center;}.topbar .r{display:none;}
+    .nav{padding:0 24px;}
+    .cs-meta{grid-template-columns:repeat(2,1fr);}
+    .cs-meta__item{padding-left:20px;}
+    .cs-meta__item:nth-child(odd){border-left:none;padding-left:0;}
+    .cs-meta__item:nth-child(n+3){border-top:1px solid #222;margin-top:18px;padding-top:18px;}
+    .gallery{grid-template-columns:1fr;}
+    .outcomes__grid{grid-template-columns:1fr;gap:30px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>Case Study 02 — Sony FYC Event</span>
+  <span class="r">Production Crew · Stagehand</span>
+</div>
+<nav class="nav">
+  <a href="index.html" class="nav__back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6l6 6"/></svg> Back to Portfolio</a>
+  <a href="index.html" class="nav__brand">RICKY LIM</a>
+</nav>
+
+<header class="cs-hero">
+  <div class="cs-hero__texture"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="cs-hero__num">PROJECT 02</div>
+    <span class="cs-hero__badge">Corporate · Awards Event</span>
+    <h1 class="cs-hero__title">Sony FYC Event</h1>
+    <p class="cs-hero__role">Production Crew / Stagehand</p>
+    <p class="cs-hero__lede">Production support for a Sony "For Your Consideration" screening and panel discussion — building the stage and seating, supporting panel audio and video, and executing a fast, clean strike on a tight venue turnaround alongside a professional production crew.</p>
+
+    <div class="cs-meta">
+      <div class="cs-meta__item"><span class="cs-meta__k">Client</span><span class="cs-meta__v">Sony · FYC Programming</span></div>
+      <div class="cs-meta__item"><span class="cs-meta__k">Format</span><span class="cs-meta__v">Screening + Panel</span></div>
+      <div class="cs-meta__item"><span class="cs-meta__k">Role</span><span class="cs-meta__v">Production Crew</span></div>
+      <div class="cs-meta__item"><span class="cs-meta__k">Focus</span><span class="cs-meta__v">Set · Panel A/V · Strike</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="cs-body">
+  <div class="container">
+
+    <!-- EVENT OVERVIEW -->
+    <section class="cs-sec">
+      <div class="cs-sec__label"><span class="cs-sec__no">01</span><h2 class="cs-sec__h">Event Overview</h2></div>
+      <p>"For Your Consideration" events are awards-season screenings staged for industry voters and press, pairing a film or series presentation with a moderated panel of talent and creatives. The production bar is high: the room has to look polished, sound clean, and run exactly on schedule for a discerning audience.</p>
+      <p>I worked as part of the production crew, contributing to the physical build and the live support of the event — the hands-on work that turns a load-in plan into a finished, camera-ready room.</p>
+      <div class="gallery">
+        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H4zM2 20h20"/></svg><span class="cap">Event Photo</span><span class="sub">Screening / House</span></div>
+        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="10" r="2.5"/><circle cx="12" cy="10" r="2.5"/><circle cx="17" cy="10" r="2.5"/><path d="M3 18h18"/></svg><span class="cap">Event Photo</span><span class="sub">Panel Stage</span></div>
+      </div>
+    </section>
+
+    <!-- PANEL DISCUSSION SUPPORT -->
+    <section class="cs-sec">
+      <div class="cs-sec__label"><span class="cs-sec__no">02</span><h2 class="cs-sec__h">Panel Discussion Support</h2></div>
+      <p>The panel format puts audio front and center — multiple speakers, a moderator, and an audience Q&amp;A all have to be intelligible and balanced. I supported the panel setup and helped keep the stage looking and sounding clean throughout.</p>
+      <ul class="cs-list">
+        <li>Set and dressed panel seating, tables, and signage for a camera-ready look.</li>
+        <li>Placed and managed microphones for panelists and moderator.</li>
+        <li>Ran cable cleanly and safely across stage and audience areas.</li>
+        <li>Supported quick mic and seating adjustments between segments.</li>
+      </ul>
+    </section>
+
+    <!-- SETUP AND STRIKE -->
+    <section class="cs-sec">
+      <div class="cs-sec__label"><span class="cs-sec__no">03</span><h2 class="cs-sec__h">Setup &amp; Strike</h2></div>
+      <p>Awards-season events run on tight venue windows, often with another booking on either side. The crew has to build fast, hold the room through the event, and strike completely and safely the moment it ends.</p>
+      <ul class="cs-list">
+        <li><b>Load-in:</b> Moved, staged, and placed gear and set pieces to the production plan.</li>
+        <li><b>Build:</b> Assembled staging, seating, and A/V positions efficiently.</li>
+        <li><b>Strike:</b> Broke down and packed the room quickly and cleanly to clear the venue on schedule.</li>
+        <li><b>Care:</b> Handled equipment and the venue with attention to avoid damage and loss.</li>
+      </ul>
+      <div class="gallery">
+        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v13H3zM3 7l3-4h12l3 4"/></svg><span class="cap">Production Photo</span><span class="sub">Load-In / Cases</span></div>
+        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V8h12v12"/></svg><span class="cap">Production Photo</span><span class="sub">Stage Build</span></div>
+      </div>
+    </section>
+
+    <!-- PRODUCTION WORKFLOW -->
+    <section class="cs-sec">
+      <div class="cs-sec__label"><span class="cs-sec__no">04</span><h2 class="cs-sec__h">Production Workflow</h2></div>
+      <p>The event followed a standard professional production workflow, and my job was to execute my part of it precisely and stay ready for the unexpected.</p>
+      <ul class="cs-list">
+        <li>Took direction from the production lead and department heads and executed assigned tasks reliably.</li>
+        <li>Worked to the run-of-show timing for set, doors, program, and strike.</li>
+        <li>Communicated clearly on the floor to keep the build coordinated.</li>
+        <li>Stayed flexible to handle last-minute changes common to live events.</li>
+      </ul>
+    </section>
+
+    <!-- TECHNICAL RESPONSIBILITIES -->
+    <section class="cs-sec">
+      <div class="cs-sec__label"><span class="cs-sec__no">05</span><h2 class="cs-sec__h">Technical Responsibilities</h2></div>
+      <ul class="cs-list">
+        <li>Audio support — mic placement, cabling, and stage management for the panel.</li>
+        <li>Staging and set assembly for screening and panel configurations.</li>
+        <li>Cable management and on-stage tidiness for a clean, safe, camera-ready look.</li>
+        <li>General A/V load-in and strike support across the production.</li>
+      </ul>
+    </section>
+
+    <!-- LESSONS LEARNED -->
+    <section class="cs-sec">
+      <div class="cs-sec__label"><span class="cs-sec__no">06</span><h2 class="cs-sec__h">Lessons Learned</h2></div>
+      <p>Working a high-profile awards-season event as part of an experienced crew reinforced the habits that carry directly into technical direction.</p>
+      <ul class="cs-list">
+        <li><b>Polish is detail:</b> On camera-facing events, cable tidiness and stage dressing matter as much as the signal.</li>
+        <li><b>Schedule is sacred:</b> Tight venue windows reward crews that build fast and strike faster without cutting corners.</li>
+        <li><b>Clear roles win:</b> A defined chain of command and good floor communication keep a complex build calm.</li>
+        <li><b>Anticipate:</b> Live events always change at the last minute — staying ready is part of the job.</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <div class="outcomes">
+    <div class="container">
+      <div class="cs-sec__label"><span class="cs-sec__no" style="color:var(--amber)">07</span><h2 class="cs-sec__h" style="color:var(--offwhite)">Outcomes</h2></div>
+      <p style="color:#cfccc6;max-width:760px;font-weight:300;">A polished, on-schedule event delivered as part of a professional crew — and hands-on experience at the standard that high-profile clients expect.</p>
+      <div class="outcomes__grid">
+        <div class="outcome"><div class="outcome__no">↳</div><div class="outcome__t">Camera-Ready Room</div><div class="outcome__d">Clean stage dressing, mic placement, and cable management for a high-visibility, press-facing event.</div></div>
+        <div class="outcome"><div class="outcome__no">↳</div><div class="outcome__t">On-Time Turnaround</div><div class="outcome__d">Fast, careful set and strike kept the production inside a tight venue window.</div></div>
+        <div class="outcome"><div class="outcome__no">↳</div><div class="outcome__t">Crew-Ready Discipline</div><div class="outcome__d">Reinforced the floor habits and professionalism that underpin a technical-director role.</div></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<section class="cs-foot">
+  <div class="container">
+    <span class="label cs-foot__k">Next</span>
+    <h2 class="cs-foot__h">Corporate Event Production →</h2>
+    <div class="cs-foot__btns">
+      <a href="project-corporate.html" class="btn btn--amber">Next Case Study</a>
+      <a href="index.html#work" class="btn btn--outline">All Work</a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
