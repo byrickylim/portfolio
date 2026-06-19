@@ -467,22 +467,6 @@
   .systems__note { margin-top: 26px; font-size: 12px; color: #8a857c; font-style: italic; }
 
   /* ============================================================
-     WORKFLOW — premium timeline
-     ============================================================ */
-  .flow { margin-top: 56px; position: relative; }
-  .flow__line { position: absolute; left: 19px; top: 8px; bottom: 8px; width: 1.5px; background: #2a2a2a; }
-  .flow__step { position: relative; display: grid; grid-template-columns: 40px 1fr; gap: 28px; padding-bottom: 38px; }
-  .flow__step:last-child { padding-bottom: 0; }
-  .flow__dot {
-    width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--amber);
-    background: var(--black); display: flex; align-items: center; justify-content: center;
-    font-family: var(--display); font-size: 14px; color: var(--amber); z-index: 1;
-  }
-  .flow__body { padding-top: 6px; }
-  .flow__title { font-weight: 600; font-size: 19px; color: var(--offwhite); margin-bottom: 6px; letter-spacing: 0.01em; }
-  .flow__desc { font-size: 14px; font-weight: 300; color: #aaa7a1; line-height: 1.6; max-width: 640px; }
-
-  /* ============================================================
      TOOLS & TECHNOLOGY — editorial grid
      ============================================================ */
   .tools__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 48px; border-top: 1px solid #e2ddd3; }
@@ -766,8 +750,7 @@
   <ul class="nav__links">
     <li><a href="#about">About</a></li>
     <li><a href="#work">Projects</a></li>
-    <li><a href="#workflow">Workflow</a></li>
-    <li><a href="#tools">Tools</a></li>
+    <li><a href="#tools">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 
@@ -785,8 +768,7 @@
 <div class="mobile-nav" id="mobileNav">
   <a href="#about" data-close>About</a>
   <a href="#work" data-close>Projects</a>
-  <a href="#workflow" data-close>Workflow</a>
-  <a href="#tools" data-close>Tools</a>
+  <a href="#tools" data-close>Skills</a>
   <a href="#contact" data-close>Contact</a>
   <a href="#contact" class="btn btn--amber" data-close>Book</a>
 </div>
@@ -841,9 +823,8 @@
     <div class="about__grid">
       <div class="about__bio">
         <p>Seven years. Five hundred shows. One standard: the show holds.</p>
-        <p>I'm a Los Angeles–based Technical Director and AVL Engineer who builds the systems that live entertainment runs on. Audio architecture, lighting infrastructure, video integration, Dante network design — from the first system drawing to the moment the house lights drop, every layer is deliberate. At the Saban Theatre, one of LA's most storied performing arts venues, I lead full technical direction for touring productions, presented shows, and high-stakes corporate events.</p>
-        <p>The work is precision engineering disguised as show business. Signal flow documentation so clean the crew can run it without me in the room. Load-ins that finish on schedule because every contingency was resolved before the truck arrived. A front-of-house mix built around the room, not the rider.</p>
-        <p>What I bring isn't just technical depth — it's operational certainty. When the house goes dark and the show goes live, there are no surprises. That's the standard. It's the only one I work to.</p>
+        <p>I'm a Technical Director and AVL Engineer in Los Angeles, working across audio, lighting, video, and Dante networking. At the Saban Theatre, one of LA's historic performing arts venues, I support touring productions, corporate programs, and live performances with serious production demands.</p>
+        <p>My work lives between engineering, logistics, and show execution: systems planned clearly, advanced properly, and ready when the house goes dark. Technical direction isn't really about the equipment. It's about making the process smoother for the artists, clients, and crews who depend on it. When the show goes live, the goal is simple: keep it clean, keep it calm, and make sure the work holds.</p>
       </div>
       <div class="about__visual">
         <div class="about__portrait-wrap">
@@ -929,104 +910,86 @@
 </section>
 
 <!-- ============================================================
-     WORKFLOW
-     ============================================================ -->
-<section class="charcoal pad-y" id="workflow">
-  <div class="container reveal">
-    <hr class="section-rule" />
-    <h2 class="section-label">Workflow</h2>
-    <p class="section-intro">A repeatable process from first conversation to final report. The same discipline scales from a single corporate session to a full venue production.</p>
-
-    <div class="flow">
-      <div class="flow__line" aria-hidden="true"></div>
-
-      <div class="flow__step">
-        <div class="flow__dot">01</div>
-        <div class="flow__body">
-          <h3 class="flow__title">Client Requirements</h3>
-          <p class="flow__desc">Define the show: goals, audience, content, budget, and constraints. Translate creative intent into technical requirements and a clear scope.</p>
-        </div>
-      </div>
-
-      <div class="flow__step">
-        <div class="flow__dot">02</div>
-        <div class="flow__body">
-          <h3 class="flow__title">System Design</h3>
-          <p class="flow__desc">Engineer the audio, lighting, video, and network systems. Produce signal flow, stage plots, power, and equipment schedules with redundancy designed in.</p>
-        </div>
-      </div>
-
-      <div class="flow__step">
-        <div class="flow__dot">03</div>
-        <div class="flow__body">
-          <h3 class="flow__title">Pre-Production</h3>
-          <p class="flow__desc">Prep and test gear, build patch and show files, advance the rider with touring acts, and align the crew on roles and the run-of-show.</p>
-        </div>
-      </div>
-
-      <div class="flow__step">
-        <div class="flow__dot">04</div>
-        <div class="flow__body">
-          <h3 class="flow__title">Load-In</h3>
-          <p class="flow__desc">Rig, cable, and power the room to the documented plan. Verify the Dante network, signal paths, and comms before anyone touches a fader.</p>
-        </div>
-      </div>
-
-      <div class="flow__step">
-        <div class="flow__dot">05</div>
-        <div class="flow__body">
-          <h3 class="flow__title">Programming</h3>
-          <p class="flow__desc">Build console scenes, lighting cues, and video playback. Soundcheck, focus, and rehearse so every cue is locked before doors.</p>
-        </div>
-      </div>
-
-      <div class="flow__step">
-        <div class="flow__dot">06</div>
-        <div class="flow__body">
-          <h3 class="flow__title">Show Execution</h3>
-          <p class="flow__desc">Run or call the show with calm, decisive control. Monitor systems live, manage the crew on comms, and handle the unexpected without breaking the room.</p>
-        </div>
-      </div>
-
-      <div class="flow__step">
-        <div class="flow__dot">07</div>
-        <div class="flow__body">
-          <h3 class="flow__title">Strike &amp; Reporting</h3>
-          <p class="flow__desc">Safe, efficient strike and load-out. Document what changed, note follow-ups, and deliver a clean report so the next show starts ahead.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     TOOLS & TECHNOLOGY
+     CERTIFICATIONS & SKILLS
      ============================================================ -->
 <section class="light pad-y" id="tools">
   <div class="container reveal">
     <hr class="section-rule" />
-    <h2 class="section-label">Tools &amp; Technology</h2>
+    <h2 class="section-label">Certifications &amp; Skills</h2>
     <p class="section-intro">The systems and platforms I design, deploy, and operate. Filter by discipline.</p>
 
     <!-- Filter tabs -->
-    <div class="tools__filters" role="tablist" aria-label="Filter tools by discipline">
-      <button class="tools__filter active" data-filter="all" role="tab" aria-selected="true">All</button>
-      <button class="tools__filter" data-filter="audio" role="tab" aria-selected="false">Audio</button>
-      <button class="tools__filter" data-filter="lighting" role="tab" aria-selected="false">Lighting</button>
-      <button class="tools__filter" data-filter="video" role="tab" aria-selected="false">Video</button>
-      <button class="tools__filter" data-filter="networking" role="tab" aria-selected="false">Networking</button>
+    <div class="tools__filters" role="tablist" aria-label="Filter skills by discipline">
+      <button class="tools__filter active" data-filter="certifications" role="tab" aria-selected="true">Certifications</button>
       <button class="tools__filter" data-filter="production" role="tab" aria-selected="false">Production</button>
+      <button class="tools__filter" data-filter="audio" role="tab" aria-selected="false">Audio</button>
+      <button class="tools__filter" data-filter="video" role="tab" aria-selected="false">Video</button>
+      <button class="tools__filter" data-filter="lighting" role="tab" aria-selected="false">Lighting</button>
+      <button class="tools__filter" data-filter="networking" role="tab" aria-selected="false">Networking</button>
     </div>
 
     <!-- Card grid -->
     <div class="tools__cards" id="toolsGrid">
 
+      <!-- Certifications -->
+      <div class="tool-card" data-category="certifications">
+        <span class="tool-card__cat">Certifications</span>
+        <h3 class="tool-card__name">Dante Certification — Levels 1 &amp; 2</h3>
+        <p class="tool-card__desc">Audinate-certified in Dante network design, configuration, and troubleshooting for AV-over-IP audio systems.</p>
+      </div>
+      <div class="tool-card" data-category="certifications">
+        <span class="tool-card__cat">Certifications</span>
+        <h3 class="tool-card__name">OSHA 30</h3>
+        <p class="tool-card__desc">OSHA 30-Hour General Industry certification — safety practices applied on every load-in, show, and strike.</p>
+      </div>
+      <div class="tool-card" data-category="certifications">
+        <span class="tool-card__cat">Certifications</span>
+        <h3 class="tool-card__name">Vectorworks Spotlight Associate</h3>
+        <p class="tool-card__desc">Certified in Vectorworks Spotlight for lighting plots, venue drafting, and production-ready CAD documentation.</p>
+      </div>
+      <div class="tool-card" data-category="certifications">
+        <span class="tool-card__cat">Certifications</span>
+        <h3 class="tool-card__name">AVIXA CTS — In Progress</h3>
+        <p class="tool-card__desc">Pursuing AVIXA Certified Technology Specialist credential, the industry standard for AV systems design and integration.</p>
+      </div>
+
+      <!-- Production -->
+      <div class="tool-card" data-category="production">
+        <span class="tool-card__cat">Production</span>
+        <h3 class="tool-card__name">Technical Direction</h3>
+        <p class="tool-card__desc">End-to-end show ownership from the first system drawing through post-show documentation and next-show prep.</p>
+      </div>
+      <div class="tool-card" data-category="production">
+        <span class="tool-card__cat">Production</span>
+        <h3 class="tool-card__name">Crew Leadership</h3>
+        <p class="tool-card__desc">Role assignment, scheduling, comms discipline, and real-time floor coordination — calm at the top sets the tone for everyone.</p>
+      </div>
+      <div class="tool-card" data-category="production">
+        <span class="tool-card__cat">Production</span>
+        <h3 class="tool-card__name">Rider Advancement</h3>
+        <p class="tool-card__desc">Translating touring technical riders into working house configurations — bridging what the act expects and what the building provides.</p>
+      </div>
+      <div class="tool-card" data-category="production">
+        <span class="tool-card__cat">Production</span>
+        <h3 class="tool-card__name">System Documentation</h3>
+        <p class="tool-card__desc">Signal flow diagrams, patch sheets, stage plots, input lists, and show reports — built so the next call starts ahead.</p>
+      </div>
+      <div class="tool-card" data-category="production">
+        <span class="tool-card__cat">Production</span>
+        <h3 class="tool-card__name">Safety Compliance</h3>
+        <p class="tool-card__desc">OSHA-aligned rigging, electrical, and crowd-safety practices enforced across load-in, show, and strike on every production.</p>
+      </div>
+      <div class="tool-card" data-category="production">
+        <span class="tool-card__cat">Production</span>
+        <h3 class="tool-card__name">Client Relations</h3>
+        <p class="tool-card__desc">Translating client and stakeholder expectations into technical execution — clear communication from advance through show day.</p>
+      </div>
+
       <!-- Audio -->
       <div class="tool-card" data-category="audio">
         <span class="tool-card__cat">Audio</span>
-        <h3 class="tool-card__name">Yamaha CL5</h3>
-        <p class="tool-card__desc">Primary FOH console at the Saban Theatre. Scene-based recall for fast changeovers between comedy, concerts, and corporate programming.</p>
+        <h3 class="tool-card__name">Digital Consoles</h3>
+        <p class="tool-card__desc">Yamaha CL5 / QL5 / DM7, Allen &amp; Heath dLive / Avantis / SQ, Midas M32 / Behringer X32, Avid S6L, DiGiCo Quantum T / SD-T.</p>
       </div>
       <div class="tool-card" data-category="audio">
         <span class="tool-card__cat">Audio</span>
@@ -1045,30 +1008,13 @@
       </div>
       <div class="tool-card" data-category="audio">
         <span class="tool-card__cat">Audio</span>
+        <h3 class="tool-card__name">Speaker System Setup</h3>
+        <p class="tool-card__desc">Line array and point-source deployment, rigging and ground stacking, system tuning and time alignment for even coverage across the room.</p>
+      </div>
+      <div class="tool-card" data-category="audio">
+        <span class="tool-card__cat">Audio</span>
         <h3 class="tool-card__name">DSP &amp; Processing</h3>
         <p class="tool-card__desc">Console matrix routing, group architecture, output processing, and system alignment tuned to the room.</p>
-      </div>
-
-      <!-- Lighting -->
-      <div class="tool-card" data-category="lighting">
-        <span class="tool-card__cat">Lighting</span>
-        <h3 class="tool-card__name">grandMA2</h3>
-        <p class="tool-card__desc">Programming cue stacks, scenes, and live playback for theatrical and event productions at the Saban and on the road.</p>
-      </div>
-      <div class="tool-card" data-category="lighting">
-        <span class="tool-card__cat">Lighting</span>
-        <h3 class="tool-card__name">DMX Control</h3>
-        <p class="tool-card__desc">Universe management, fixture addressing, and protocol troubleshooting across conventional and LED rigs.</p>
-      </div>
-      <div class="tool-card" data-category="lighting">
-        <span class="tool-card__cat">Lighting</span>
-        <h3 class="tool-card__name">LED Fixtures</h3>
-        <p class="tool-card__desc">Integration of wash and spot LED units into existing rigs — color matching, spatial programming, blending with conventional sources.</p>
-      </div>
-      <div class="tool-card" data-category="lighting">
-        <span class="tool-card__cat">Lighting</span>
-        <h3 class="tool-card__name">Plot &amp; Cue Management</h3>
-        <p class="tool-card__desc">Maintained lighting plots, channel hookups, and focus notes for repertory use — so visiting LDs walk into a documented system.</p>
       </div>
 
       <!-- Video -->
@@ -1093,6 +1039,33 @@
         <p class="tool-card__desc">HDMI/SDI routing, format conversion, and clean delivery to screens, record feeds, and remote destinations.</p>
       </div>
 
+      <!-- Lighting -->
+      <div class="tool-card" data-category="lighting">
+        <span class="tool-card__cat">Lighting</span>
+        <h3 class="tool-card__name">DMX Control &amp; Signal Flow</h3>
+        <p class="tool-card__desc">Universe management, fixture addressing, and protocol troubleshooting across conventional and LED rigs.</p>
+      </div>
+      <div class="tool-card" data-category="lighting">
+        <span class="tool-card__cat">Lighting</span>
+        <h3 class="tool-card__name">grandMA2 Programming</h3>
+        <p class="tool-card__desc">Programming cue stacks, scenes, and live playback for theatrical and event productions at the Saban and on the road.</p>
+      </div>
+      <div class="tool-card" data-category="lighting">
+        <span class="tool-card__cat">Lighting</span>
+        <h3 class="tool-card__name">Art-Net / sACN Networking</h3>
+        <p class="tool-card__desc">Lighting network design and protocol conversion for distributing DMX universes over Ethernet at scale.</p>
+      </div>
+      <div class="tool-card" data-category="lighting">
+        <span class="tool-card__cat">Lighting</span>
+        <h3 class="tool-card__name">Stage Lighting Design</h3>
+        <p class="tool-card__desc">Plot development, fixture selection, and look design tailored to the room and the show.</p>
+      </div>
+      <div class="tool-card" data-category="lighting">
+        <span class="tool-card__cat">Lighting</span>
+        <h3 class="tool-card__name">Fixture Rigging</h3>
+        <p class="tool-card__desc">Safe hang, focus, and load-rated rigging of conventional and LED fixtures for touring and resident productions.</p>
+      </div>
+
       <!-- Networking -->
       <div class="tool-card" data-category="networking">
         <span class="tool-card__cat">Networking</span>
@@ -1115,30 +1088,8 @@
         <p class="tool-card__desc">Networked AV transport planning beyond Dante — IP fundamentals applied to real production and venue environments.</p>
       </div>
 
-      <!-- Production -->
-      <div class="tool-card" data-category="production">
-        <span class="tool-card__cat">Production</span>
-        <h3 class="tool-card__name">Technical Direction</h3>
-        <p class="tool-card__desc">End-to-end show ownership from the first system drawing through post-show documentation and next-show prep.</p>
-      </div>
-      <div class="tool-card" data-category="production">
-        <span class="tool-card__cat">Production</span>
-        <h3 class="tool-card__name">Crew Leadership</h3>
-        <p class="tool-card__desc">Role assignment, scheduling, comms discipline, and real-time floor coordination — calm at the top sets the tone for everyone.</p>
-      </div>
-      <div class="tool-card" data-category="production">
-        <span class="tool-card__cat">Production</span>
-        <h3 class="tool-card__name">Rider Advancement</h3>
-        <p class="tool-card__desc">Translating touring technical riders into working house configurations — bridging what the act expects and what the building provides.</p>
-      </div>
-      <div class="tool-card" data-category="production">
-        <span class="tool-card__cat">Production</span>
-        <h3 class="tool-card__name">System Documentation</h3>
-        <p class="tool-card__desc">Signal flow diagrams, patch sheets, stage plots, input lists, and show reports — built so the next call starts ahead.</p>
-      </div>
-
     </div>
-    <p class="tools__count" id="toolsCount">21 skills across 5 disciplines</p>
+    <p class="tools__count" id="toolsCount">2 skills — certifications</p>
   </div>
 </section>
 
@@ -1201,8 +1152,7 @@
       <ul class="footer__links">
         <li><a href="#about">About</a></li>
         <li><a href="#work">Projects</a></li>
-        <li><a href="#workflow">Workflow</a></li>
-        <li><a href="#tools">Tools</a></li>
+            <li><a href="#tools">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <span class="footer__copy">© 2026 · Technical Director · Los Angeles</span>
@@ -1283,23 +1233,25 @@
     var filterBtns = document.querySelectorAll('.tools__filter');
     var toolCards = document.querySelectorAll('.tool-card');
     var toolsCount = document.getElementById('toolsCount');
-    var disciplineNames = { all: 'disciplines', audio: 'audio', lighting: 'lighting', video: 'video', networking: 'networking', production: 'production' };
+    var disciplineNames = { certifications: 'certifications', production: 'production', audio: 'audio', video: 'video', lighting: 'lighting', networking: 'networking' };
+    function applyFilter(f) {
+      var visible = 0;
+      toolCards.forEach(function (card) {
+        if (card.dataset.category === f) { card.classList.remove('hidden'); visible++; }
+        else { card.classList.add('hidden'); }
+      });
+      toolsCount.textContent = visible + ' skill' + (visible !== 1 ? 's' : '') + ' — ' + disciplineNames[f];
+    }
     filterBtns.forEach(function (btn) {
       btn.addEventListener('click', function () {
         var f = btn.dataset.filter;
         filterBtns.forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
         btn.classList.add('active');
         btn.setAttribute('aria-selected', 'true');
-        var visible = 0;
-        toolCards.forEach(function (card) {
-          if (f === 'all' || card.dataset.category === f) { card.classList.remove('hidden'); visible++; }
-          else { card.classList.add('hidden'); }
-        });
-        toolsCount.textContent = f === 'all'
-          ? '21 skills across 5 disciplines'
-          : visible + ' skill' + (visible !== 1 ? 's' : '') + ' — ' + disciplineNames[f];
+        applyFilter(f);
       });
     });
+    applyFilter('certifications');
 
     /* ---- Floating resume button: show after hero leaves viewport ---- */
     var hero = document.getElementById('hero');
