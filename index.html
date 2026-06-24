@@ -3,17 +3,26 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Security: content policy + referrer hardening (static site, no backend) -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'self'" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+
 <title>Ricky Lim — Technical Director &amp; Production Lead · Los Angeles</title>
 <meta name="description" content="Ricky Lim — Technical Director and Production Lead based in Los Angeles. Live entertainment, corporate production, venue operations, audio / lighting / video systems, and production engineering. Available nationwide." />
 
 <!-- Open Graph / social sharing -->
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://byrickylim.com/" />
 <meta property="og:title" content="Ricky Lim — Technical Director & Production Lead" />
 <meta property="og:description" content="Los Angeles–based Technical Director for live entertainment and corporate production. Audio, lighting, video, and networking — system design through showtime." />
 <meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://byrickylim.com/hero-foh.jpg" />
+<meta property="og:image:alt" content="Ricky Lim at the front-of-house console during a live show" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Ricky Lim — Technical Director & Production Lead" />
 <meta name="twitter:description" content="Los Angeles–based Technical Director for live entertainment and corporate production." />
+<meta name="twitter:image" content="https://byrickylim.com/hero-foh.jpg" />
 
 <!-- Inline favicon: RL monogram on ink -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230a0a0a'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23f4f2ee'%3ERL%3C/text%3E%3C/svg%3E" />
@@ -215,12 +224,6 @@
     );
   }
   .hero__content { position: relative; z-index: 2; flex: 1; display: flex; flex-direction: column; padding: 28px 0 18px; }
-  .hero__top { position: relative; z-index: 3; display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
-  .hero__role { display: flex; flex-direction: column; gap: 4px; max-width: 480px; }
-  .hero__role .label { color: rgba(255,255,255,0.8); }
-  .hero__role .label.dim { color: rgba(255,255,255,0.45); }
-  .hero__rule { width: 56px; height: 1.5px; background: var(--amber); margin-top: 10px; }
-  .hero__role .hero__tagline { margin: 18px 0 0; }
 
   .hero__stage { flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 0; padding: 10px 0; }
   .hero__roles {
@@ -279,27 +282,6 @@
     animation: kenburns 28s ease-in-out infinite alternate;
     transform-origin: center center;
   }
-  .hero__photo--ph {
-    width: clamp(280px, 46vw, 620px); height: clamp(320px, 58vh, 600px);
-    background:
-      linear-gradient(180deg, rgba(20,20,20,0.85) 0%, rgba(12,12,12,0.92) 100%);
-    border: 1px solid #2a2a2a; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 14px; color: #8d887d;
-  }
-  .hero__photo--ph svg { width: 56px; height: 56px; opacity: 0.6; color: var(--amber); }
-  .hero__photo--ph .ph-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #b6b0a4; }
-  .hero__photo--ph .ph-sub { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #6d6862; }
-
-  .hero__bottom { position: relative; z-index: 3; display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
-  .hero__pitch { max-width: 460px; }
-  .hero__tagline { font-size: clamp(15px, 1.4vw, 18px); font-weight: 300; line-height: 1.5; color: #3a382f; margin-bottom: 22px; }
-  .hero__tagline strong { font-weight: 500; color: var(--black); }
-  .hero__ctas { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
-  .hero__stats { position: relative; z-index: 1; display: flex; border-top: 1px solid #d9d4ca; }
-  .hero__stat { flex: 1; padding: 22px 0; border-left: 1px solid #d9d4ca; padding-left: 24px; }
-  .hero__stat:first-child { border-left: none; padding-left: 0; }
-  .hero__stat .stat-key { color: #8d887d; display: block; margin-bottom: 6px; }
-  .hero__stat .stat-val { font-weight: 500; font-size: 15px; letter-spacing: 0.03em; color: var(--black); }
 
   /* ============================================================
      HERO — CINEMATIC ENHANCEMENTS
@@ -352,22 +334,10 @@
   }
 
   /* ============================================================
-     CREDENTIAL BAR
-     ============================================================ */
-  .credbar { background: var(--black); border-top: 1px solid #222; border-bottom: 1px solid #222; }
-  .credbar__inner { display: flex; align-items: stretch; justify-content: center; }
-  .cred {
-    flex: 1; display: flex; align-items: center; justify-content: center;
-    padding: 26px 18px; border-left: 1px solid #222; text-align: center;
-  }
-  .cred:first-child { border-left: none; }
-  .cred__label { color: #cfccc6; font-size: 10px; letter-spacing: 0.18em; }
-
-  /* ============================================================
      DARK / LIGHT SECTION HELPERS
      ============================================================ */
   /* Dark surfaces flip the accent to a soft ivory and the CTA to paper-on-ink */
-  .dark, .charcoal, .credbar, .footer, .resume-block, .mobile-nav, .nav.scrolled {
+  .dark, .footer, .mobile-nav, .nav.scrolled {
     --amber: #cdc8bd;
     --cta-bg: var(--offwhite);
     --cta-fg: var(--black);
@@ -379,9 +349,6 @@
   .dark .label { color: var(--gray); }
   .light { background: var(--offwhite); color: var(--black); }
   .light .label { color: #5a5752; }
-  .charcoal { background: #0e0e0e; color: var(--offwhite); }
-  .charcoal .section-label { color: var(--offwhite); }
-  .charcoal .label { color: var(--gray); }
 
   /* ============================================================
      ABOUT
@@ -397,18 +364,36 @@
     width: 100%; height: 100%; object-fit: cover; object-position: center top;
     display: block;
   }
-  .avatar {
-    width: 200px; aspect-ratio: 3/4; border-radius: 0; border: 1px solid #c9c4b8; background: var(--black);
-    display: flex; align-items: center; justify-content: center; font-family: var(--display);
-    font-weight: 400; font-size: 92px; color: var(--offwhite); line-height: 1; flex-shrink: 0;
-  }
   /* ============================================================
      WORK — case study previews
      ============================================================ */
   .work__head { display: flex; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
   .work__subline { font-style: italic; font-weight: 300; color: var(--gray); font-size: 18px; margin-bottom: 6px; }
-  .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
+  .work__arrow {
+    position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+    width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+    background: var(--card-darker); border: 1px solid #2a2a2a; color: var(--offwhite);
+    cursor: pointer; transition: border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+  }
+  .work__arrow--prev { left: 0; }
+  .work__arrow--next { right: 0; }
+  .work__arrow svg { width: 20px; height: 20px; }
+  .work__arrow:hover { border-color: var(--amber); color: var(--amber); }
+  .work__arrow:disabled { opacity: 0.25; cursor: default; }
+  .work__arrow:disabled:hover { border-color: #2a2a2a; color: var(--offwhite); }
+
+  .case-carousel { margin-top: 48px; position: relative; padding: 0 68px; }
+  .case-viewport { overflow: hidden; }
+  .case-dots { display: none; justify-content: center; gap: 9px; margin-top: 26px; flex-wrap: wrap; }
+  .case-dot { width: 8px; height: 8px; border-radius: 50%; background: #3a3a3a; border: none; padding: 0; cursor: pointer; transition: background 0.2s ease, transform 0.2s ease; }
+  .case-dot.active { background: var(--amber); transform: scale(1.3); }
+  .case-track {
+    display: flex; gap: 18px;
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
   .case {
+    flex: 0 0 calc((100% - 36px) / 3); min-width: 0;
     background: var(--card-darker); border: 1px solid var(--border-dark);
     display: flex; flex-direction: column; transition: border-color 0.2s ease;
   }
@@ -437,86 +422,6 @@
   .case__tag { font-size: 11px; color: var(--gray); border: 1px solid #242424; padding: 4px 9px; }
 
   /* ============================================================
-     SYSTEMS — documentation portfolio
-     ============================================================ */
-  .systems__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px; }
-  .sys {
-    background: #fbfaf7; border: 1px solid #e2ddd3; display: flex; flex-direction: column;
-    transition: border-color 0.2s ease, transform 0.2s ease;
-  }
-  .sys:hover { border-color: var(--amber); transform: translateY(-3px); }
-  .sys__media {
-    position: relative; aspect-ratio: 4 / 3; background:
-      repeating-linear-gradient(0deg, #efeae0 0, #efeae0 1px, transparent 1px, transparent 22px),
-      repeating-linear-gradient(90deg, #efeae0 0, #efeae0 1px, transparent 1px, transparent 22px),
-      #f4f1ea;
-    border-bottom: 1px solid #e2ddd3; display: flex; align-items: center; justify-content: center;
-  }
-  .sys__media svg { width: 38px; height: 38px; color: #c2bbac; }
-  .sys__body { padding: 22px 22px 24px; display: flex; flex-direction: column; flex-grow: 1; }
-  .sys__assoc { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
-  .sys__name { font-weight: 600; font-size: 16px; line-height: 1.25; color: var(--black); margin-bottom: 8px; }
-  .sys__desc { font-size: 13px; font-weight: 300; color: #5a5752; line-height: 1.55; margin-bottom: 18px; flex-grow: 1; }
-  .sys__dl {
-    display: inline-flex; align-items: center; gap: 7px; align-self: flex-start;
-    font-weight: 500; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--black); border-bottom: 1.5px solid #cfc9bd; padding-bottom: 4px;
-    transition: color 0.2s ease, border-color 0.2s ease;
-  }
-  .sys__dl:hover { color: var(--amber); border-color: var(--amber); }
-  .systems__note { margin-top: 26px; font-size: 12px; color: #8a857c; font-style: italic; }
-
-  /* ============================================================
-     TOOLS & TECHNOLOGY — editorial grid
-     ============================================================ */
-  .tools__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 48px; border-top: 1px solid #e2ddd3; }
-  .toolcol { padding: 32px 26px 32px 0; border-right: 1px solid #e2ddd3; }
-  .toolcol:last-child { border-right: none; padding-right: 0; }
-  .toolcol__icon { color: var(--amber); margin-bottom: 18px; }
-  .toolcol__cat { font-family: var(--display); font-weight: 400; font-size: 14px; letter-spacing: 0.04em;
-    text-transform: uppercase; color: var(--black); margin-bottom: 20px; }
-  .toolcol__list { list-style: none; }
-  .toolcol__list li { font-size: 14px; font-weight: 400; color: #3a382f; padding: 9px 0; border-top: 1px solid #e8e3d9; }
-  .toolcol__list li:first-child { border-top: none; }
-
-  /* ============================================================
-     EXPERIENCE — resume timeline
-     ============================================================ */
-  .exp { margin-top: 52px; }
-  .exp__row {
-    display: grid; grid-template-columns: 200px 1fr; gap: 40px; padding: 36px 0;
-    border-top: 1px solid #2a2a2a; align-items: start;
-  }
-  .exp__row:last-child { border-bottom: 1px solid #2a2a2a; }
-  .exp__period { font-family: var(--body); font-weight: 500; font-size: 12px; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--amber); padding-top: 6px; }
-  .exp__org { font-family: var(--display); font-weight: 400; font-size: clamp(22px, 2.6vw, 32px);
-    line-height: 1.05; letter-spacing: -0.01em; color: var(--offwhite); margin-bottom: 8px; }
-  .exp__role { font-size: 14px; font-weight: 500; letter-spacing: 0.04em; color: #cfccc6; margin-bottom: 14px; }
-  .exp__desc { font-size: 14px; font-weight: 300; color: #a8a59f; line-height: 1.65; max-width: 660px; }
-
-  /* ============================================================
-     CERTS — completed / in progress / planned
-     ============================================================ */
-  .certs__group { margin-top: 44px; }
-  .certs__group-label { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
-  .certs__group-label .label { color: #5a5752; white-space: nowrap; }
-  .certs__group-label .line { flex: 1; height: 1px; background: #e2ddd3; }
-  .certs__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  .cert-card {
-    background: #fbfaf7; border: 1px solid #e2ddd3; border-left: 3px solid var(--amber);
-    padding: 30px; display: flex; gap: 20px; align-items: flex-start;
-  }
-  .cert-card__icon { color: var(--amber); flex-shrink: 0; }
-  .cert-card__issuer { color: #8a857c; margin-bottom: 8px; }
-  .cert-card__name { font-family: var(--body); font-weight: 600; font-size: 21px; line-height: 1.1; margin-bottom: 8px; color: var(--black); }
-  .cert-card__desc { font-size: 14px; color: #5a5752; font-weight: 300; line-height: 1.55; }
-  .cert-card--progress { border-left-color: #b88a4a; }
-  .cert-card--soon { border: 1px dashed #c5bfb2; border-left: 1px dashed #c5bfb2; background: transparent; }
-  .cert-card--soon .cert-card__icon { color: #b6b0a4; }
-  .cert-card--soon .cert-card__name { color: #6b675f; }
-
-  /* ============================================================
      CONTACT
      ============================================================ */
   .contact__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 24px; }
@@ -532,37 +437,9 @@
   }
   .contact__direct a svg { color: var(--amber); flex-shrink: 0; }
   .contact__direct a:hover { color: var(--amber); }
-  .form-field { margin-bottom: 20px; }
-  .form-field label {
-    display: block; font-weight: 500; font-size: 11px; letter-spacing: 0.15em;
-    text-transform: uppercase; color: #5a5752; margin-bottom: 8px;
-  }
-  .form-field input, .form-field select, .form-field textarea {
-    width: 100%; font-family: var(--body); font-size: 15px; color: var(--black);
-    background: #fbfaf7; border: 1px solid #d8d4cc; border-radius: 0; padding: 13px 15px;
-    transition: border-color 0.2s ease;
-  }
-  .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--amber); }
-  .form-field textarea { resize: vertical; }
-  .form .btn { width: 100%; justify-content: center; padding: 16px; font-size: 13px; }
-  .form-success {
-    border: 1px solid var(--amber); border-left: 3px solid var(--amber); background: #fbfaf7;
-    padding: 40px; text-align: center;
-  }
-  .form-success__icon { color: var(--amber); margin: 0 auto 16px; width: 48px; height: 48px; }
-  .form-success h3 { font-family: var(--display); font-weight: 400; font-size: 30px; letter-spacing: -0.01em;
-    text-transform: uppercase; color: var(--black); margin-bottom: 10px; }
-  .form-success p { color: #5a5752; font-weight: 300; }
-
   /* ============================================================
-     RESUME CTA + FLOAT
+     RESUME FLOAT
      ============================================================ */
-  .resume-block { background: var(--black); text-align: center; padding: 100px 0; border-top: 1px solid var(--border-dark); }
-  .resume-block__label { color: var(--amber); margin-bottom: 18px; display: block; }
-  .resume-block h2 {
-    font-family: var(--display); font-weight: 400; font-size: clamp(30px, 4.4vw, 58px);
-    line-height: 1; letter-spacing: -0.01em; text-transform: uppercase; margin-bottom: 30px; color: var(--offwhite);
-  }
   .resume-float {
     position: fixed; bottom: 26px; right: 26px; z-index: var(--z-float);
     background: var(--card-dark); color: var(--offwhite); border: 1px solid var(--border-dark);
@@ -592,12 +469,7 @@
     display: block; width: 40px; height: 1px; border: none;
     background: #3a3530; margin: 0 0 20px;
   }
-  .dark .section-rule, .charcoal .section-rule { background: #cdc8bd; }
-
-  /* ============================================================
-     STATS STRIP (hero stat row, below hero)
-     ============================================================ */
-  .stats-strip { background: var(--offwhite); }
+  .dark .section-rule { background: #cdc8bd; }
 
   /* ============================================================
      ABOUT STATS (replaces pill chips)
@@ -628,11 +500,7 @@
      RESPONSIVE — 1024px
      ============================================================ */
   @media (max-width: 1024px) {
-    .case-grid { grid-template-columns: repeat(2, 1fr); }
-    .systems__grid { grid-template-columns: repeat(2, 1fr); }
-    .tools__grid { grid-template-columns: repeat(2, 1fr); border-top: none; }
-    .toolcol { border-right: none; border-top: 1px solid #e2ddd3; padding: 28px 0; }
-    .toolcol:nth-child(odd) { padding-right: 26px; border-right: 1px solid #e2ddd3; }
+    .case { flex: 0 0 calc((100% - 18px) / 2); }
   }
 
   /* ============================================================
@@ -645,27 +513,14 @@
     .nav__links, .nav .btn--amber { display: none; }
     .nav__toggle { display: flex; }
 
-    .hero__top { flex-direction: column; gap: 16px; }
     .hero__name { font-size: 15vw; letter-spacing: 0.02em; white-space: normal; }
     .hero__photo { height: 56vh; }
-    .hero__bottom { flex-direction: column; align-items: flex-start; gap: 22px; }
-    .hero__stats { flex-wrap: wrap; }
-    .hero__stat { flex: 1 1 50%; border-top: 1px solid #d9d4ca; padding-left: 24px; border-left: 1px solid #d9d4ca; }
-    .hero__stat:nth-child(odd) { border-left: none; padding-left: 0; }
-
-    .credbar__inner { flex-wrap: wrap; }
-    .cred { flex: 1 1 50%; border-left: 1px solid #222; border-top: 1px solid #222; }
-    .cred:nth-child(odd) { border-left: none; }
-    .cred:nth-child(1), .cred:nth-child(2) { border-top: none; }
 
     .about__grid { grid-template-columns: 1fr; gap: 48px; }
-    .case-grid { grid-template-columns: 1fr; }
-    .systems__grid { grid-template-columns: 1fr; }
-    .tools__grid { grid-template-columns: 1fr; }
-    .toolcol, .toolcol:nth-child(odd) { padding: 24px 0; border-right: none; }
-    .exp__row { grid-template-columns: 1fr; gap: 12px; }
-    .exp__period { padding-top: 0; }
-    .certs__grid { grid-template-columns: 1fr; }
+    .case { flex: 0 0 100%; }
+    .case-carousel { padding: 0; }
+    .work__arrow { display: none; }
+    .case-dots { display: flex; }
     .contact__grid { grid-template-columns: 1fr; gap: 48px; }
     .footer__inner { flex-direction: column; text-align: center; }
   }
@@ -677,8 +532,6 @@
     .container { padding: 0 18px; }
     .hero__name { font-size: 14vw; }
     .hero__photo { height: 46vh; }
-    .hero__ctas { width: 100%; }
-    .cert-card { padding: 24px; flex-direction: column; gap: 16px; }
     .resume-float { bottom: 16px; right: 16px; padding: 12px 16px; }
   }
 
@@ -749,7 +602,7 @@
 <nav class="nav" id="nav">
   <ul class="nav__links">
     <li><a href="#about">About</a></li>
-    <li><a href="#work">Projects</a></li>
+    <li><a href="#work">Work</a></li>
     <li><a href="#tools">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -767,7 +620,7 @@
 <!-- mobile overlay nav -->
 <div class="mobile-nav" id="mobileNav">
   <a href="#about" data-close>About</a>
-  <a href="#work" data-close>Projects</a>
+  <a href="#work" data-close>Work</a>
   <a href="#tools" data-close>Skills</a>
   <a href="#contact" data-close>Contact</a>
   <a href="#contact" class="btn btn--amber" data-close>Book</a>
@@ -857,54 +710,163 @@
     <div class="work__head">
       <hr class="section-rule" />
       <h2 class="section-label">Work</h2>
-      <span class="work__subline">Selected case studies</span>
+      <span class="work__subline">Selected productions</span>
     </div>
-    <p class="section-intro">Flagship live productions where I led technical direction across audio, lighting, and video — from system design through showtime.</p>
+    <p class="section-intro">Professional production work across live entertainment, awards shows, corporate events, concerts, and movie premieres, spanning technical direction, lighting, audio, and show execution.</p>
 
-    <div class="case-grid">
+    <div class="case-carousel">
+      <button class="work__arrow work__arrow--prev" id="caseProw" type="button" aria-label="Previous productions">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="work__arrow work__arrow--next" id="caseNext" type="button" aria-label="Next productions">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="case-viewport" id="caseViewport">
+        <div class="case-track" id="caseTrack">
 
       <article class="case">
         <div class="case__media">
           <span class="case__num">01</span>
-          <img src="evening-penn.jpg" alt="An Evening with Penn: Los Angeles" />
+          <img src="netflix.png" alt="Netflix Is a Joke Fest" />
         </div>
         <div class="case__body">
-          <span class="case__badge">Live Entertainment · Theatre</span>
-          <h3 class="case__title">An Evening with Penn: Los Angeles</h3>
-          <p class="case__role">Technical Director</p>
-          <p class="case__desc">Technical direction for a live theatre engagement in Los Angeles — system design, signal flow, and full audio, lighting, and video integration from load-in through showtime.</p>
-          <div class="case__tags"><span class="case__tag">Audio</span><span class="case__tag">Lighting</span><span class="case__tag">Video</span></div>
+          <span class="case__badge">Comedy Festival · Live</span>
+          <h3 class="case__title">Netflix Is a Joke Fest</h3>
+          <p class="case__role">House TD / Lighting Operator</p>
+          <p class="case__desc">House TD for Netflix Is a Joke Fest at the Saban Theatre featuring Chelsea Handler, Anthony Jeselnik, Brett Goldstein, Smosh, Dodgers Comedy Night, Larry David, and Jerry Seinfeld. LD for select shows.</p>
+          <div class="case__tags"><span class="case__tag">Technical Direction</span><span class="case__tag">Lighting Operation</span><span class="case__tag">Festival Production</span><span class="case__tag">Comedy / Live Events</span></div>
         </div>
       </article>
 
       <article class="case">
         <div class="case__media">
           <span class="case__num">02</span>
-          <img src="netflix.jpeg" alt="Netflix Is a Joke Fest" />
+          <img src="award_photo.png" alt="The Clio Awards" />
         </div>
         <div class="case__body">
-          <span class="case__badge">Comedy Festival · Live</span>
-          <h3 class="case__title">Netflix Is a Joke Fest</h3>
-          <p class="case__role">Technical Director</p>
-          <p class="case__desc">Technical direction for a high-profile festival production — audio, lighting, and video systems delivered to broadcast-grade standards on a fast festival turnaround.</p>
-          <div class="case__tags"><span class="case__tag">Audio</span><span class="case__tag">Lighting</span><span class="case__tag">Show Ops</span></div>
+          <span class="case__badge">Awards Show · Live</span>
+          <h3 class="case__title">The Clio Awards</h3>
+          <p class="case__role">House TD / Lighting Operator</p>
+          <p class="case__desc">House TD and lighting operator for The Clio Awards at the Saban Theatre — technical direction and live lighting for advertising's most prestigious creative honors.</p>
+          <div class="case__tags"><span class="case__tag">Technical Direction</span><span class="case__tag">Lighting Operation</span><span class="case__tag">Awards Show</span><span class="case__tag">Live Event</span></div>
         </div>
       </article>
 
       <article class="case">
         <div class="case__media">
           <span class="case__num">03</span>
-          <img src="paris-nicole.jpg" alt="Paris & Nicole: The Encore" />
+          <img src="niagara.jpg" alt="Niagara Water Holiday Gala" />
         </div>
         <div class="case__body">
-          <span class="case__badge">Live Event · Production</span>
-          <h3 class="case__title">Paris &amp; Nicole: The Encore</h3>
-          <p class="case__role">Technical Director</p>
-          <p class="case__desc">Technical direction for a live event production — end-to-end system design, FOH audio, lighting, and video, with crew coordination across load-in to strike.</p>
-          <div class="case__tags"><span class="case__tag">System Design</span><span class="case__tag">FOH</span><span class="case__tag">Video</span></div>
+          <span class="case__badge">Corporate Event · Live</span>
+          <h3 class="case__title">Niagara Water Holiday Gala</h3>
+          <p class="case__role">Production Manager / Sound Engineer</p>
+          <p class="case__desc">Production manager and sound engineer for Niagara Water's corporate event at The Canyon Club, Montclair — managing production logistics and delivering front-of-house audio end to end.</p>
+          <div class="case__tags"><span class="case__tag">Production Management</span><span class="case__tag">Sound Engineering</span><span class="case__tag">Corporate Event</span><span class="case__tag">FOH Audio</span></div>
         </div>
       </article>
 
+      <article class="case">
+        <div class="case__media">
+          <span class="case__num">04</span>
+          <img src="evening-penn.jpg" alt="An Evening with Penn: Los Angeles" />
+        </div>
+        <div class="case__body">
+          <span class="case__badge">Special Event · Live Production</span>
+          <h3 class="case__title">An Evening with Penn: Los Angeles</h3>
+          <p class="case__role">House TD / Lighting Operator</p>
+          <p class="case__desc">Served as house TD and lighting operator for An Evening with Penn: Los Angeles, supporting stage lighting, projection, audio, video, and live presentation needs.</p>
+          <div class="case__tags"><span class="case__tag">Technical Direction</span><span class="case__tag">Lighting Operation</span><span class="case__tag">Audio / Video</span><span class="case__tag">Special Event</span></div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case__media">
+          <span class="case__num">05</span>
+          <img src="the_good_half.webp" alt="The Good Half Movie Premiere" style="object-position: center top;" />
+        </div>
+        <div class="case__body">
+          <span class="case__badge">Film Premiere · Live</span>
+          <h3 class="case__title">The Good Half Movie Premiere</h3>
+          <p class="case__role">House TD / Event Production</p>
+          <p class="case__desc">House TD for The Good Half premiere at the Saban Theatre — technical direction across the red carpet, screening, and cast panel for the film's debut.</p>
+          <div class="case__tags"><span class="case__tag">Technical Direction</span><span class="case__tag">Red Carpet</span><span class="case__tag">Screening</span><span class="case__tag">Cast Panel</span></div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case__media">
+          <span class="case__num">06</span>
+          <img src="candlelight.png" alt="Candlelight: A Haunted Evening of Halloween Classics" />
+        </div>
+        <div class="case__body">
+          <span class="case__badge">Concert · Live</span>
+          <h3 class="case__title">Candlelight: A Haunted Evening of Halloween Classics</h3>
+          <p class="case__role">House TD / Sound Engineer</p>
+          <p class="case__desc">House TD and sound engineer for Candlelight: A Haunted Evening of Halloween Classics at the Saban Theatre — front-of-house audio for an intimate, candlelit concert experience.</p>
+          <div class="case__tags"><span class="case__tag">Technical Direction</span><span class="case__tag">Sound Engineering</span><span class="case__tag">FOH Audio</span><span class="case__tag">Concert</span></div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case__media">
+          <span class="case__num">07</span>
+          <img src="seoinguk.png" alt="Fallen for Seo In Guk" />
+        </div>
+        <div class="case__body">
+          <span class="case__badge">Fan Concert · Live</span>
+          <h3 class="case__title">Fallen for Seo In Guk</h3>
+          <p class="case__role">House TD / Sound Engineer</p>
+          <p class="case__desc">House TD and sound engineer for Fallen for Seo In Guk at the Saban Theatre — front-of-house audio for the Korean singer-actor's live fan concert.</p>
+          <div class="case__tags"><span class="case__tag">Technical Direction</span><span class="case__tag">Sound Engineering</span><span class="case__tag">FOH Audio</span><span class="case__tag">Fan Concert</span></div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case__media">
+          <span class="case__num">08</span>
+          <img src="dior.png" alt="Dior Welcome Dinner" style="transform: scale(1.45); transform-origin: 50% 58%;" />
+        </div>
+        <div class="case__body">
+          <span class="case__badge">Brand Event · Live</span>
+          <h3 class="case__title">Dior Welcome Dinner</h3>
+          <p class="case__role">Audio Engineer / Systems Tech</p>
+          <p class="case__desc">Audio systems for Dior's Welcome Dinner at the historic Charlie Chaplin Studios — console rigging, load-in, and soundcheck for a full indoor and outdoor PA across the event.</p>
+          <div class="case__tags"><span class="case__tag">Audio Systems</span><span class="case__tag">System Rigging</span><span class="case__tag">Soundcheck</span><span class="case__tag">Brand Event</span></div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case__media">
+          <span class="case__num">09</span>
+          <img src="sony.png" alt="Sony FYC 2026" style="object-position: center 22%;" />
+        </div>
+        <div class="case__body">
+          <span class="case__badge">FYC Showcase · Live</span>
+          <h3 class="case__title">Sony FYC 2026</h3>
+          <p class="case__role">Live Event Production Support</p>
+          <p class="case__desc">Live event production support for Sony Pictures Television's For Your Consideration showcase — stage operations and panel support for series including The Boys, For All Mankind, Spider-Man Noir, and Outlander.</p>
+          <div class="case__tags"><span class="case__tag">Live Event Support</span><span class="case__tag">Talent Panels</span><span class="case__tag">Stage Operations</span></div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case__media">
+          <span class="case__num">10</span>
+          <img src="paris-nicole.jpg" alt="Paris & Nicole: The Encore" />
+        </div>
+        <div class="case__body">
+          <span class="case__badge">TV Production · Live Event</span>
+          <h3 class="case__title">Paris &amp; Nicole: The Encore</h3>
+          <p class="case__role">House TD / Film Support</p>
+          <p class="case__desc">Supported the filming of "Paris &amp; Nicole: The Encore" at the Saban Theatre, assisting with venue-side production needs during the television shoot.</p>
+          <div class="case__tags"><span class="case__tag">TV Production</span><span class="case__tag">Venue Support</span><span class="case__tag">Live Shoot</span></div>
+        </div>
+      </article>
+
+        </div>
+      </div>
+      <div class="case-dots" id="caseDots" role="tablist" aria-label="Production slides"></div>
     </div>
   </div>
 </section>
@@ -1089,7 +1051,7 @@
       </div>
 
     </div>
-    <p class="tools__count" id="toolsCount">2 skills — certifications</p>
+    <p class="tools__count" id="toolsCount">4 skills — certifications</p>
   </div>
 </section>
 
@@ -1122,7 +1084,7 @@
             </svg>
             (626) 566-0303
           </a>
-          <a href="https://www.linkedin.com/in/ricky-lim-6552441b4/" target="_blank" rel="noopener">
+          <a href="https://www.linkedin.com/in/ricky-lim-6552441b4/" target="_blank" rel="noopener noreferrer">
             <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/>
               <path d="M8 11l0 5"/><path d="M8 8l0 .01"/><path d="M12 16l0 -5"/><path d="M16 16v-3a2 2 0 0 0 -4 0"/>
@@ -1151,7 +1113,7 @@
       <span class="footer__brand">RICKY LIM</span>
       <ul class="footer__links">
         <li><a href="#about">About</a></li>
-        <li><a href="#work">Projects</a></li>
+        <li><a href="#work">Work</a></li>
             <li><a href="#tools">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -1252,6 +1214,74 @@
       });
     });
     applyFilter('certifications');
+
+    /* ---- Work slideshow (carousel) ---- */
+    var caseViewport = document.getElementById('caseViewport');
+    var caseTrack = document.getElementById('caseTrack');
+    var casePrev = document.getElementById('caseProw');
+    var caseNext = document.getElementById('caseNext');
+    if (caseViewport && caseTrack && casePrev && caseNext) {
+      var caseCards = caseTrack.querySelectorAll('.case');
+      var caseIndex = 0;
+      var caseDots = document.getElementById('caseDots');
+      var dotEls = [];
+      if (caseDots) {
+        caseCards.forEach(function (_, i) {
+          var d = document.createElement('button');
+          d.type = 'button';
+          d.className = 'case-dot';
+          d.setAttribute('aria-label', 'Go to production ' + (i + 1));
+          d.addEventListener('click', function () { caseIndex = i; caseUpdate(); });
+          caseDots.appendChild(d);
+          dotEls.push(d);
+        });
+      }
+      function caseStep() {
+        if (!caseCards.length) return 0;
+        var styles = getComputedStyle(caseTrack);
+        var gap = parseFloat(styles.columnGap || styles.gap) || 0;
+        return caseCards[0].offsetWidth + gap;
+      }
+      function caseMaxOffset() {
+        return Math.max(0, caseTrack.scrollWidth - caseViewport.clientWidth);
+      }
+      function caseUpdate() {
+        var step = caseStep();
+        var max = caseMaxOffset();
+        var maxIndex = step > 0 ? Math.ceil(max / step) : 0;
+        if (caseIndex > maxIndex) caseIndex = maxIndex;
+        if (caseIndex < 0) caseIndex = 0;
+        var offset = Math.min(caseIndex * step, max);
+        caseTrack.style.transform = 'translateX(-' + offset + 'px)';
+        casePrev.disabled = caseIndex <= 0;
+        caseNext.disabled = caseIndex >= maxIndex;
+        dotEls.forEach(function (d, i) { d.classList.toggle('active', i === caseIndex); });
+      }
+      casePrev.addEventListener('click', function () { caseIndex--; caseUpdate(); });
+      caseNext.addEventListener('click', function () { caseIndex++; caseUpdate(); });
+
+      /* touch swipe (mobile) */
+      var touchX = 0, touchY = 0, touching = false;
+      caseViewport.addEventListener('touchstart', function (e) {
+        var t = e.changedTouches[0]; touchX = t.clientX; touchY = t.clientY; touching = true;
+      }, { passive: true });
+      caseViewport.addEventListener('touchend', function (e) {
+        if (!touching) return; touching = false;
+        var t = e.changedTouches[0];
+        var dx = t.clientX - touchX, dy = t.clientY - touchY;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+          if (dx < 0) caseIndex++; else caseIndex--;
+          caseUpdate();
+        }
+      }, { passive: true });
+
+      var caseResizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(caseResizeTimer);
+        caseResizeTimer = setTimeout(caseUpdate, 150);
+      });
+      caseUpdate();
+    }
 
     /* ---- Floating resume button: show after hero leaves viewport ---- */
     var hero = document.getElementById('hero');
